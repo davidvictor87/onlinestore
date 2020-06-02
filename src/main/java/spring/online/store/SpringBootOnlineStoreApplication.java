@@ -8,7 +8,7 @@ public class SpringBootOnlineStoreApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootOnlineStoreApplication.class, args);
-		System.out.println("App Started...");
+		System.out.println("App Started");
 	}
 
 }
