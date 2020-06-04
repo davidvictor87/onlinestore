@@ -23,7 +23,7 @@ import static org.bson.codecs.configuration.CodecRegistries.fromRegistries;
 @EnableMongoRepositories
 public class MongoDbConfigDriver extends AbstractReactiveMongoConfiguration{
 	
-	@Value("${}")
+	@Value("${mongo.url.script}")
 	private String connectionString;
 	
 	@Override

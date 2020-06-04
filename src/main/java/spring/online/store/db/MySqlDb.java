@@ -18,20 +18,21 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 @EnableJpaRepositories(
 		entityManagerFactoryRef = "entityManagerFactory",
-		basePackages = {""}
+		transactionManagerRef = "transactionManager",
+		basePackages = {"spring.online.store.login.repository"}
 		)
 public class MySqlDb {
 
-	@Bean(name = "entityManagerFactory")
-	@ConfigurationProperties(prefix = "")
+	@Bean(name = "dataSource")
+	@ConfigurationProperties(prefix = "spring.datasource")
 	public DataSource dataSource() {
 		return DataSourceBuilder.create().build();
 	}
 
-	@Bean
+	@Bean(name = "entityManagerFactory")
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory(EntityManagerFactoryBuilder builder,
 			@Qualifier("dataSource") DataSource dataSource) {
-		return builder.dataSource(dataSource).packages("").persistenceUnit("").build();
+		return builder.dataSource(dataSource).packages("spring.online.store.login.model").persistenceUnit("Users").persistenceUnit("UserRole").persistenceUnit("Role").build();
 	}
 	
 	@Bean(name = "transactionManager")
