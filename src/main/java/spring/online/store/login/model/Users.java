@@ -42,6 +42,8 @@ public class Users implements Serializable{
 	private Set<Role> roles;
 	
 	public Users() {}
+	
+	public Users(Users users) {}
 
 	public Users(@NotNull int id, String email, String password, String name, String last_name, int active,
 			Set<Role> roles) {
