@@ -1,23 +1,18 @@
 package spring.online.store.login.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import org.springframework.data.relational.core.mapping.Table;
+import org.springframework.data.relational.core.mapping.Column;
+import org.springframework.data.annotation.Id;
 
-@Entity
-@Table(catalog = "login", name = "role")
+@Table("role")
 public class Role {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
-	@Column(name = "role_id")
+	@Column("role_id")
 	@NotNull(message = "id cannot be null")
 	private int role_Id;
-	@Column(name = "role")
+	@org.springframework.data.relational.core.mapping.Column("role")
 	private String role;
 	
 	public Role() {}

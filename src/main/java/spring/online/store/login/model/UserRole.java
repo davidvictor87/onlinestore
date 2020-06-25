@@ -1,20 +1,18 @@
 package spring.online.store.login.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import org.springframework.data.relational.core.mapping.Table;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Column;
 
-@Entity
-@Table(catalog = "login", name = "user_role")
+@Table("user_role")
 public class UserRole {
 	
 	@Id
-	@Column(name = "user_id")
+	@Column("user_id")
 	@NotNull
 	private int user_id;
-	@Column(name="role_id")
+	@Column("role_id")
 	private String roleId;
 	
 	public UserRole() {}

@@ -2,43 +2,32 @@ package spring.online.store.login.model;
 
 import java.io.Serializable;
 import java.util.Set;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
-@Entity
-@Table(catalog = "login", name = "user")
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Column;
+import org.springframework.data.relational.core.mapping.Table;
+
+
+@Table("user")
 public class Users implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
-	@Column(name = "user_id")
+	@Column("user_id")
 	@NotNull
 	private int id;
-	@Column(name = "email")
+	@Column("email")
 	private String email;
-	@Column(name = "password")
+	@Column("password")
 	private String password;
-	@Column(name = "name")
+	@Column("name")
 	private String name;
-	@Column(name = "last_name")
+	@Column("last_name")
 	private String last_name;
-	@Column(name = "active")
+	@Column("active")
 	private int active;
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private Set<Role> roles;
 	
 	public Users() {}

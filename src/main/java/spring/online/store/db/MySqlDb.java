@@ -1,43 +1,25 @@
 package spring.online.store.db;
 
-import javax.persistence.EntityManagerFactory;
-import javax.sql.DataSource;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.boot.jdbc.DataSourceBuilder;
-import org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder;
-import org.springframework.context.annotation.Bean;
+import java.nio.charset.StandardCharsets;
+
 import org.springframework.context.annotation.Configuration;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.orm.jpa.JpaTransactionManager;
-import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
-import org.springframework.transaction.PlatformTransactionManager;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.data.r2dbc.config.AbstractR2dbcConfiguration;
+import org.springframework.data.r2dbc.repository.config.EnableR2dbcRepositories;
+
+import com.github.jasync.r2dbc.mysql.JasyncConnectionFactory;
+import com.github.jasync.sql.db.mysql.pool.MySQLConnectionFactory;
+import com.github.jasync.sql.db.mysql.util.URLParser;
+import io.r2dbc.spi.ConnectionFactory;
 
 @Configuration
-@EnableTransactionManagement
-@EnableJpaRepositories(
-		entityManagerFactoryRef = "entityManagerFactory",
-		transactionManagerRef = "transactionManager",
-		basePackages = {"spring.online.store.login.repository"}
-		)
-public class MySqlDb {
+@EnableR2dbcRepositories
+public class MySqlDb extends AbstractR2dbcConfiguration {
 
-	@Bean(name = "dataSource")
-	@ConfigurationProperties(prefix = "spring.datasource")
-	public DataSource dataSource() {
-		return DataSourceBuilder.create().build();
-	}
-
-	@Bean(name = "entityManagerFactory")
-	public LocalContainerEntityManagerFactoryBean entityManagerFactory(EntityManagerFactoryBuilder builder,
-			@Qualifier("dataSource") DataSource dataSource) {
-		return builder.dataSource(dataSource).packages("spring.online.store.login.model").persistenceUnit("Users").persistenceUnit("UserRole").persistenceUnit("Role").build();
-	}
-	
-	@Bean(name = "transactionManager")
-	public PlatformTransactionManager transactionManager(@Qualifier("entityManagerFactory") EntityManagerFactory entityManagerFactory) {
-		return new JpaTransactionManager(entityManagerFactory);
+	@Override
+	public ConnectionFactory connectionFactory() {
+		final String dbURL = "jdbc:mysql://localhost:3306/login?useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+		return new JasyncConnectionFactory(
+				new MySQLConnectionFactory(URLParser.INSTANCE.parseOrDie(dbURL, StandardCharsets.UTF_8)));
 	}
 
 }
