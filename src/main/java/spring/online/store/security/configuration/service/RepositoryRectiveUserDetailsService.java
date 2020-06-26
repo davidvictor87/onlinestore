@@ -1,4 +1,4 @@
-package spring.online.store.service;
+package spring.online.store.security.configuration.service;
 
 import java.util.Collection;
 import java.util.Optional;
