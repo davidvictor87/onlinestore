@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.data.mongo.MongoDataAutoConfigurat
 import org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
@@ -25,12 +26,5 @@ public class SpringBootOnlineStoreApplication {
 		SpringApplication.run(SpringBootOnlineStoreApplication.class, args);
 		System.out.println("App Started");
 	}
-	
-	@Bean
-	@Order(Ordered.HIGHEST_PRECEDENCE)
-	public HiddenHttpMethodFilter hiddenHttpMethodFilter() {
-		return new HiddenHttpMethodFilter();
-	}
-
 
 }

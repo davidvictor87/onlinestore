@@ -1,4 +1,4 @@
-package spring.online.store.security.configuration.controller;
+package spring.online.store.controller;
 
 import org.springframework.security.web.server.csrf.CsrfToken;
 import org.springframework.web.bind.annotation.ControllerAdvice;
