@@ -4,19 +4,21 @@ import {Nav, Navbar, NavDropdown, MenuItem,  Tabs, ButtonToolbar, Button, Form, 
 import * as bs from 'bootstrap/dist/css/bootstrap.css';
 import Navi from './NavClass.js'
 import { Route, BrowserRouter as Router,Switch} from 'react-router-dom';
+import axios from 'axios';
+import CA from './CallApi.js';
 
 class App 
 extends React.Component
 {
      render(){
         return(
-           <Router>
-               <Switch>
-               <Route path='/' exact={true} component={Navi} />
-               </Switch>
-           </Router>
+               <Router>
+                 <Route path='/' exact={true} component={Navi} />
+                 <Route path='/s' exact={true} component={CA}/>
+               </Router>
         )
      }
+
 };
 
 export default App;

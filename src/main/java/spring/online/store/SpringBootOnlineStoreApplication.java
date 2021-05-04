@@ -7,13 +7,13 @@ import org.springframework.boot.autoconfigure.data.mongo.MongoDataAutoConfigurat
 import org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+//import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 
 @SpringBootApplication
 @EnableAutoConfiguration(exclude= {MongoAutoConfiguration.class, MongoDataAutoConfiguration.class})
-@ComponentScan({"spring.online.store.security.configuration", "spring.online.store.login.repository", "spring.online.store.login.model", "spring.online.store.db"})
+@ComponentScan({"spring.online.store.controller","spring.online.store.security.configuration", "spring.online.store.login.repository", "spring.online.store.login.model", "spring.online.store.db"})
 @EnableMongoRepositories
-@EnableWebSecurity
+//@EnableWebSecurity
 public class SpringBootOnlineStoreApplication {
 
 	public static void main(String[] args) {

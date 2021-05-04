@@ -4,11 +4,11 @@ import java.util.Collection;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.GrantedAuthority;
+/*import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.ReactiveUserDetailsService;
 import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetails;*/
 import org.springframework.stereotype.Service;
 
 import reactor.core.publisher.Mono;
@@ -16,9 +16,11 @@ import spring.online.store.login.model.Users;
 import spring.online.store.login.repository.UserRepository;
 
 @Service
-public class RepositoryRectiveUserDetailsService implements ReactiveUserDetailsService{
+public class RepositoryRectiveUserDetailsService 
+//implements ReactiveUserDetailsService
+{
 	
-	@Autowired
+	/*@Autowired
 	private UserRepository userRepository;
 
 	@Override
@@ -36,7 +38,7 @@ public class RepositoryRectiveUserDetailsService implements ReactiveUserDetailsS
 
 		@Override
 		public Collection<? extends GrantedAuthority> getAuthorities() {
-			return AuthorityUtils.createAuthorityList("ROLE_USERR");
+			return AuthorityUtils.createAuthorityList("ROLE_USER");
 		}
 
 		@Override
@@ -63,7 +65,7 @@ public class RepositoryRectiveUserDetailsService implements ReactiveUserDetailsS
 		public boolean isEnabled() {
 			return true;
 		}		
-	}
+	}*/
 	
 	
 

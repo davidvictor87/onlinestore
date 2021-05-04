@@ -3,10 +3,10 @@ package spring.online.store.mongo.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document
+//@Document
 public class FileModel {
 	
-	@Id
+	//@Id
 	private int id;
 	private String name;
 	private String profession;

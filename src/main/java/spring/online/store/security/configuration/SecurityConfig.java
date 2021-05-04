@@ -4,7 +4,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
-import org.springframework.security.authentication.AuthenticationManager;
+/*import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authorization.AuthorizationDecision;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -17,21 +17,21 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.server.SecurityWebFilterChain;
-import org.springframework.security.web.server.authorization.AuthorizationContext;
+import org.springframework.security.web.server.authorization.AuthorizationContext;*/
 
 import reactor.core.publisher.Mono;
 
 @Configuration
-@EnableWebFluxSecurity
-@Order
-@ComponentScan({"spring.online.store.service", "spring.online.store.controller"})
+//@EnableWebFluxSecurity
+//@Order
+//@ComponentScan({"spring.online.store.service", "spring.online.store.controller"})
 public class SecurityConfig {
 			
-	@Bean
+	/*@Bean
 	public SecurityWebFilterChain springSecurityFilterChain(ServerHttpSecurity httpSecurity) {
 		httpSecurity.authorizeExchange().pathMatchers("/users").access(this::isUser)
-		.pathMatchers("/login", "/welcome", "/webjars/**").permitAll()
-		.anyExchange().authenticated().and().formLogin().loginPage("/login");
+		.pathMatchers("/start/login", "/start/welcome", "/webjars/**").permitAll()
+		.anyExchange().authenticated().and().formLogin().loginPage("/start/login");
 		return httpSecurity.build();
 	}
 	
@@ -44,6 +44,6 @@ public class SecurityConfig {
 	@Bean
 	public PasswordEncoder passwordEncoder() {
 		return PasswordEncoderFactories.createDelegatingPasswordEncoder();
-	}
+	}*/
 
 }
