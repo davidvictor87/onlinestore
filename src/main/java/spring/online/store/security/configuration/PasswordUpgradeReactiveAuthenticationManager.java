@@ -1,21 +1,19 @@
 package spring.online.store.security.configuration;
 
-/*import org.springframework.security.authentication.ReactiveAuthenticationManager;
+import org.springframework.security.authentication.ReactiveAuthenticationManager;
 import org.springframework.security.authentication.UserDetailsRepositoryReactiveAuthenticationManager;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.ReactiveUserDetailsService;
-import org.springframework.security.crypto.password.PasswordEncoder;*/
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import reactor.core.publisher.Mono;
 import reactor.core.scheduler.Schedulers;
 import spring.online.store.login.model.Users;
 import spring.online.store.login.repository.UserRepository;
 
-public class PasswordUpgradeReactiveAuthenticationManager 
-//implements ReactiveAuthenticationManager
-{
+public class PasswordUpgradeReactiveAuthenticationManager implements ReactiveAuthenticationManager{
 	
-	/*private final UserRepository users;
+	private final UserRepository users;
 	private final ReactiveAuthenticationManager delegate;
 	private final PasswordEncoder encoder;
 
@@ -42,7 +40,7 @@ public class PasswordUpgradeReactiveAuthenticationManager
 				reactiveUserDetailsService);
 		result.setPasswordEncoder(encoder);
 		return result;
-	}*/
+	}
 
 
 }

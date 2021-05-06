@@ -9,18 +9,18 @@ import reactor.core.publisher.Mono;
 import spring.online.store.login.model.Users;
 import spring.online.store.security.configuration.CurrentUser;
 
-//@ControllerAdvice
+@ControllerAdvice
 public class ApplicationControllerAdvice {
 	
 	/*@ModelAttribute
 	public Mono<CsrfToken> csrfToken(ServerWebExchange serverExchange){
 		Mono<CsrfToken> csrfToken = serverExchange.getAttribute(CsrfToken.class.getName());
 		return csrfToken.doOnSuccess(appToken -> serverExchange.getAttributes().put(CsrfRequestDataValueProcessor.DEFAULT_CSRF_ATTR_NAME, appToken));
-	}
+	}*/
 	
 	@ModelAttribute("curentuser")
 	public Users currentUser(@CurrentUser Users user) {
 		return user;
-	}*/
+	}
 
 }
