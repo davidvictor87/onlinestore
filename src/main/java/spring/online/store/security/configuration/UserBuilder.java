@@ -12,8 +12,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @Configuration
 public class UserBuilder {
 	
-	@Bean(name = "userbuilder")
-	@Primary
+	//@Bean(name = "userbuilder")
+	//@Primary
 	public MapReactiveUserDetailsService userDetailsService() {
 		PasswordEncoder passwordEncoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
 		UserDetails user = User.withUsername("username")
