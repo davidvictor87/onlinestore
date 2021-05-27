@@ -17,10 +17,10 @@ class CallApi extends React.Component{
     render() {
         console.log('Start calling endpoint');
         return(
-        <ul>
-            <h1>Data</h1>
-        {this.state.jsons.map(json => <li>{json.id} : {json.name} : {json.profession} : {json.address} : {json.isEnabled}</li>)}
-        </ul>
+           <ul>
+              <h1>Data</h1>
+           {this.state.jsons.map(json => <li>{json.id} : {json.name} : {json.profession} : {json.address} : {json.isEnabled}</li>)}
+           </ul>
         )
     }
 

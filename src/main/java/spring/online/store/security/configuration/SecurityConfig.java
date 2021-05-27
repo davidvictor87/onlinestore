@@ -29,13 +29,13 @@ import reactor.core.publisher.Mono;
 @ComponentScan({"spring.online.store.service", "spring.online.store.controller"})
 public class SecurityConfig {
 	
-	private static final String [] UNSECURED = {"/start/json", "/login"};
+	private static final String [] UNSECURED = {"/start/json", "/start/login"};
 			
 	@Bean
 	public SecurityWebFilterChain springSecurityFilterChain(ServerHttpSecurity httpSecurity) {
 		return httpSecurity.authorizeExchange().pathMatchers(UNSECURED).
 		permitAll().pathMatchers("/not/allowed").permitAll().anyExchange().authenticated()
-		.and().csrf().and().formLogin().loginPage("/login")
+		.and().csrf().disable().formLogin().loginPage("/start/login")
 		.authenticationSuccessHandler(new RedirectServerAuthenticationSuccessHandler("/dashbord"))
 		.and().build();
 	}
