@@ -26,7 +26,7 @@ public class ControllerStart {
 		f.add(new FileModel(2, "Popel", "Popa", "Cimintirului", true));
 		return f;
 	}
-	
+	//
 	@PostMapping(value = "/start/login")
 	@CrossOrigin(value = "http://localhost:3000")
 	@ResponseBody
